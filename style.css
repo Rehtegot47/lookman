@@ -1,0 +1,130 @@
+.body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: black;
+}
+
+.container{
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+    position: relative;
+}
+.son{
+    position: absolute;
+    top: 15em;
+    left: 15em;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    background-color: yellow;
+    box-shadow: 0  0 3em rgb(27, 20, 20);
+}
+
+.earth, .moon{
+    position: absolute;
+    border-style: solid;
+    border-color: rgb(95, 38, 38) transparent transparent transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius:50% ;
+}
+.earth{
+    top: 5em;
+    left: 5em;
+    width: 30em;
+    height: 30em;
+    animation: orbit 36.5 linear infinite;
+}
+.moon{
+    top: 0;
+    right: 0;
+    width: 8em;
+    height: 8em;
+    animation: orbit 2.7s linear infinite;
+}
+.earth::before,
+.moon::before{
+    content:"";
+    position: absolute;
+    border-radius: 50%;
+}
+.earth::before{
+    top: 2.8em;
+    right: 2.8em;
+    height: 3em;
+    width: 3em;
+    background-color: aqua;
+}
+.moon::before{
+    top: 0.8em;
+    right: 0.2em;
+    height: 1.2em;
+    width: 1.2em;
+    background-color: silver;
+}
+@keyframes orbit{
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.body{
+    background-color: black;
+}
+
+.container {
+    margin: 100px 0 0 200px;
+    width: 70;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.container img{
+    width: 10%;
+    height: 100%;
+    object-fit: cover;
+    border-radius:10px ;
+    border: 2px solid rgba(255, 255, 255, 0.684);
+    transition: all ease-in-out 0.5s;
+}
+.container img:hover{
+    width: 25%;
+}
+
+.Moon{
+    background-color: black;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    position: relative;
+}
+.Moon::before{
+    content: "";
+    background-color:blue;
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    z-index: -1;
+    animation: 3.2s animation linearinfinite alternate;
+}
+@keyframes animation{
+    0%{
+        transform: translateX(40px) scale(0.9);
+        box-shadow: none;
+    }
+    50%{
+        transform: translate(0px,0px) scale(1.02);
+        box-shadow: 0 0 10px blue, 0 0 80px 2px blue;
+    }
+    100%{
+        transform: translateX(-40px) scale(0.9);
+        box-shadow: none;
+    }
+} 
